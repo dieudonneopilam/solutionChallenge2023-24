@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:solutionchallenge2024/logic/bloc/bottom_bloc.dart';
 import 'package:solutionchallenge2024/map.dart';
-import 'package:solutionchallenge2024/screens/bottom.dart';
 import 'package:solutionchallenge2024/screens/detail.post.dart';
 
 class RouteAppConfig {
@@ -14,7 +13,7 @@ class RouteAppConfig {
           name: 'home',
           builder: (context, state) => BlocProvider(
                 create: (context) => BottomBloc(),
-                child: MapSample(),
+                child: const MapSample(),
               ),
           routes: [
             GoRoute(

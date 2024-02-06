@@ -37,9 +37,11 @@ dependencies:
   go_router: ^13.1.0
   google_fonts: ^6.1.0
   google_maps_flutter: ^2.5.3
+  google_maps_flutter_android: ^2.6.2
   google_maps_flutter_web: ^0.5.4+3
   heroicons: ^0.9.0
   image_picker: ^1.0.7
+  yjy_google_maps_flutter_platform_interface: ^2.4.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
