@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:solutionchallenge2024/logic/bloc/bottom_bloc.dart';
+import 'package:solutionchallenge2024/logic/bottom/bottom_bloc.dart';
 import 'package:solutionchallenge2024/utils/pages.dart';
 
 class BottomScreen extends StatelessWidget {

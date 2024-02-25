@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solutionchallenge2024/models/comment.dart';
 
 import 'sizebox.dart';
 import 'text.dart';
@@ -6,7 +7,9 @@ import 'text.dart';
 class BoxContentCommentaire extends StatelessWidget {
   const BoxContentCommentaire({
     super.key,
+    required this.commentModel,
   });
+  final CommentModel commentModel;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +19,8 @@ class BoxContentCommentaire extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           width20(),
-          const CircleAvatar(
-            backgroundImage: AssetImage('assets/img/default.png'),
+          CircleAvatar(
+            backgroundImage: NetworkImage(commentModel.user['urlImg']),
           ),
           width20(),
           Expanded(
@@ -27,19 +30,36 @@ class BoxContentCommentaire extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextMedium('Dieudonne ngwangwa', size: 16),
-                      TextSmall('il y a 10 min', size: 12)
+                      TextMedium(commentModel.user['name'], size: 16),
+                      TextSmall(
+                          DateTime.now()
+                                      .difference(commentModel.dateComment)
+                                      .inMinutes <=
+                                  0
+                              ? 'Maintenant'
+                              : DateTime.now()
+                                          .difference(commentModel.dateComment)
+                                          .inMinutes >
+                                      59
+                                  ? 'il y a ${DateTime.now().difference(commentModel.dateComment).inHours} heure'
+                                  : ' il y a ${DateTime.now().difference(commentModel.dateComment).inMinutes} minutes',
+                          color: Colors.grey,
+                          size: 14),
                     ],
                   ),
                   height5(),
-                  const TextSmall('commentaire')
+                  TextSmall(commentModel.comment)
                 ],
               ),
               height5(),
-              Container(color: Colors.grey, height: 1, margin: const EdgeInsets.only(right: 20),),
+              Container(
+                color: Colors.grey,
+                height: 1,
+                margin: const EdgeInsets.only(right: 20),
+              ),
             ],
           ))
         ],

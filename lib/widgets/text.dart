@@ -2,24 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextSmall extends StatelessWidget {
-  const TextSmall(
-    this.text, {
-    super.key,
-    this.size = 16,
-    this.color = Colors.black,
-  });
+  const TextSmall(this.text,
+      {super.key,
+      this.size = 16,
+      this.color = Colors.black,
+      this.textAlign = TextAlign.left});
   final double size;
   final String text;
   final Color color;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.poppins(
-        fontSize: size,
-        color: color
-      ),
+      style: GoogleFonts.poppins(fontSize: size, color: color),
+      textAlign: textAlign,
     );
   }
 }
@@ -39,7 +37,8 @@ class TextMedium extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.poppins(fontSize: size, fontWeight: FontWeight.w500, color: color),
+      style: GoogleFonts.poppins(
+          fontSize: size, fontWeight: FontWeight.w500, color: color),
     );
   }
 }
@@ -59,7 +58,7 @@ class TextLarge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.poppins(fontSize: size, fontWeight: FontWeight.bold),
+      style: GoogleFonts.poppins(fontSize: size, fontWeight: FontWeight.bold, color: color),
     );
   }
 }

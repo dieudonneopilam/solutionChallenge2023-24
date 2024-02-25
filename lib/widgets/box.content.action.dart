@@ -10,17 +10,26 @@ class BoxContentAction extends StatelessWidget {
     required this.icon,
     required this.nb,
     required this.onTap,
+    this.colorIcon = Colors.grey,
   });
   final HeroIcons icon;
   final String nb;
   final VoidCallback onTap;
+  final Color colorIcon;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Row(
-        children: [HeroIcon(icon), width5(), TextSmall(nb)],
+        children: [
+          HeroIcon(
+            icon,
+            color: colorIcon,
+          ),
+          width5(),
+          TextSmall(nb, color: colorIcon)
+        ],
       ),
     );
   }
